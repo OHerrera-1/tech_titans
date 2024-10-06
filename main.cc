@@ -2,9 +2,19 @@
 #include <queue>
 #include <set>
 
-void CreateWebsite(std::queue<std::string> &WebSite);
+struct Alumno {
+    std::string nombre;
+    std::string apellido;
+    std::string curso;
+    std::string contraseña;
+    std::string carnet;
+};
 
-int main() {
+void CreateWebsite(std::queue<std::string> &WebSite);
+void registrarAlumnos(struct Alumno&);
+
+int main(int argc, char *argv[]) {
+  Alumno nuevoAlumno;
   int opcion = 0;
   std::queue<std::string> Web_site;
   do {
@@ -14,7 +24,7 @@ int main() {
     std::cin >> opcion;
     switch (opcion) {
       case 1:
-        /* Registrarse */
+        registrarAlumnos(nuevoAlumno);
         break;
 
       case 2:
@@ -37,6 +47,7 @@ int main() {
   return 0;
 }
 
+
 void CreateWebsite(std::queue<std::string> &Web_site) {
   std::string customer_name;
   std::cout << "Ingrese el nombre del sitio web: ";
@@ -45,3 +56,24 @@ void CreateWebsite(std::queue<std::string> &Web_site) {
   std::cout<< "\nEl sitio Web: "<<customer_name<<" fue registrado con exito!!"<<std::endl;
   std::cout<<std::endl;
 }
+
+void registrarAlumnos(Alumno& alumno) {
+    std::cout << "Ingrese el nombre del alumno: ";
+    std::getline(std::cin, alumno.nombre);
+    
+    std::cout << "Ingrese el apellido del alumno: ";
+    std::getline(std::cin, alumno.apellido);
+    
+    std::cout << "Ingrese el curso al que pertenece: ";
+    std::getline(std::cin, alumno.curso);
+    
+    std::cout << "Ingrese la contraseña: ";
+    std::getline(std::cin, alumno.contraseña);
+    
+    std::cout << "Ingrese el carnet: ";
+    std::getline(std::cin, alumno.carnet);
+
+    std::cout << "\nRegistro completado:\n";
+  
+  }
+
