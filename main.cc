@@ -1,7 +1,18 @@
 #include <iostream>
 #include <set>
 
+struct Alumno {
+    std::string nombre;
+    std::string apellido;
+    std::string curso;
+    std::string contraseña;
+    std::string carnet;
+};
+
+void registrarAlumnos(struct Alumno&);
+
 int main(int argc, char *argv[]) {
+  Alumno nuevoAlumno;
   int opcion = 0;
   do {
     std::cout << "Ingrese la opcion que desea "
@@ -9,7 +20,7 @@ int main(int argc, char *argv[]) {
     std::cin >> opcion;
     switch (opcion) {
       case 1:
-        /* Registrarse */
+        registrarAlumnos(nuevoAlumno);
         break;
 
       case 2:
@@ -29,3 +40,22 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
+void registrarAlumnos(Alumno& alumno) {
+    std::cout << "Ingrese el nombre del alumno: ";
+    std::getline(std::cin, alumno.nombre);
+    
+    std::cout << "Ingrese el apellido del alumno: ";
+    std::getline(std::cin, alumno.apellido);
+    
+    std::cout << "Ingrese el curso al que pertenece: ";
+    std::getline(std::cin, alumno.curso);
+    
+    std::cout << "Ingrese la contraseña: ";
+    std::getline(std::cin, alumno.contraseña);
+    
+    std::cout << "Ingrese el carnet: ";
+    std::getline(std::cin, alumno.carnet);
+
+    std::cout << "\nRegistro completado:\n";
+  
+  }
