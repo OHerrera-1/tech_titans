@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include <set>
 
 struct Alumno {
@@ -9,14 +10,17 @@ struct Alumno {
     std::string carnet;
 };
 
+void CreateWebsite(std::queue<std::string> &WebSite);
 void registrarAlumnos(struct Alumno&);
 
 int main(int argc, char *argv[]) {
   Alumno nuevoAlumno;
   int opcion = 0;
+  std::queue<std::string> Web_site;
   do {
-    std::cout << "Ingrese la opcion que desea "
-                 "realziar\n1.Registrarte\n2.Acceder\n3.Observar\n4.Salir\nOpcion: ";
+    std::cout << "-------------------------MENU-------------------------"
+                 "\n1.Registrar usuario \n2.Registrar sitio web "
+                 "Web\n3.Acceder\n4.Observar\n5.Salir\nOpcion: ";
     std::cin >> opcion;
     switch (opcion) {
       case 1:
@@ -24,10 +28,13 @@ int main(int argc, char *argv[]) {
         break;
 
       case 2:
-        /* Ingresar */
+        CreateWebsite(Web_site);
         break;
 
       case 3:
+
+        break;
+      case 4:
         /* Observar */
         break;
 
@@ -35,9 +42,19 @@ int main(int argc, char *argv[]) {
         std::cout << "Opcion invalida";
         break;
     }
-  } while (opcion != 4);
+  } while (opcion != 5);
 
   return 0;
+}
+
+
+void CreateWebsite(std::queue<std::string> &Web_site) {
+  std::string customer_name;
+  std::cout << "Ingrese el nombre del sitio web: ";
+  std::cin >> customer_name;
+  Web_site.push(customer_name);
+  std::cout<< "\nEl sitio Web: "<<customer_name<<" fue registrado con exito!!"<<std::endl;
+  std::cout<<std::endl;
 }
 
 void registrarAlumnos(Alumno& alumno) {
@@ -59,3 +76,4 @@ void registrarAlumnos(Alumno& alumno) {
     std::cout << "\nRegistro completado:\n";
   
   }
+
