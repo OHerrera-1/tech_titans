@@ -46,7 +46,7 @@ int main(int argc, char *argv[]) {
       }
 
       case 4:
-      ShowStudents(Students);
+        ShowStudents(Students);
         break;
 
       case 5:
@@ -137,21 +137,33 @@ void ShowWebSites(std::queue<std::string> websites) {
   }
 }
 
-void ShowStudents(const std::queue<Alumno> &alumnos){
+void ShowStudents(const std::queue<Alumno> &alumnos) {
   std::queue<Alumno> tempAlumnos = alumnos;
 
-  if (tempAlumnos.empty()){
-std::cout <<"No hay alumnos registrados. "<< std::endl;
-return;
-}
-std::cout <<"/n Lista de alumnos registrados: "<<std::endl;
-while (!tempAlumnos.empty()){
-  Alumno actualAlumno = tempAlumnos.front();
-  std::cout<<"Nombre: "<< actualAlumno.nombre
-  <<", Apellido: " << actualAlumno.apellido
-  <<", Curso: " << actualAlumno.curso
-  <<", Carnet: "<< actualAlumno.carnet <<std::endl;
-  tempAlumnos.pop();
-}
+  if (tempAlumnos.empty()) {
+    std::cout << "No hay alumnos registrados. " << std::endl;
+    return;
+  }
+  std::cout << "/n Lista de alumnos registrados: " << std::endl;
+  while (!tempAlumnos.empty()) {
+    Alumno actualAlumno = tempAlumnos.front();
+    tempAlumnos.pop();
 
+    std::cout << "Nombre: " << actualAlumno.nombre
+              << ", Apellido: " << actualAlumno.apellido
+              << ", Curso: " << actualAlumno.curso
+              << ", Carnet: " << actualAlumno.carnet
+              << ", Sitios web accedidos: ";
+
+    if (actualAlumno.ingresos.empty()) {
+      std::cout << "No ha accedido a ningun sitio web. ";
+    } else {
+      std::set<std::string>::iterator web;
+      for (web = actualAlumno.ingresos.begin();
+           web != actualAlumno.ingresos.end(); ++web) {
+        std::cout << *web << " ";
+      }
+    }
+    std::cout << std::endl;
+  }
 }
