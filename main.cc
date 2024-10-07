@@ -18,6 +18,7 @@ void AccessWebsite(std::queue<Alumno> &students,
                    std::string password);
 void AskUserAndPassword(std::string &id, std::string &userpassword);
 void ShowWebSites(std::queue<std::string> websites);
+void ShowStudents(const std::queue<Alumno> &alumnos);
 
 int main(int argc, char *argv[]) {
   int opcion = 0;
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]) {
       }
 
       case 4:
-        /* Observar */
+      ShowStudents(Students);
         break;
 
       case 5:
@@ -134,4 +135,23 @@ void ShowWebSites(std::queue<std::string> websites) {
     std::cout << "- " << tempwebsites.front() << std::endl;
     tempwebsites.pop();
   }
+}
+
+void ShowStudents(const std::queue<Alumno> &alumnos){
+  std::queue<Alumno> tempAlumnos = alumnos;
+
+  if (tempAlumnos.empty()){
+std::cout <<"No hay alumnos registrados. "<< std::endl;
+return;
+}
+std::cout <<"/n Lista de alumnos registrados: "<<std::endl;
+while (!tempAlumnos.empty()){
+  Alumno actualAlumno = tempAlumnos.front();
+  std::cout<<"Nombre: "<< actualAlumno.nombre
+  <<", Apellido: " << actualAlumno.apellido
+  <<", Curso: " << actualAlumno.curso
+  <<", Carnet: "<< actualAlumno.carnet <<std::endl;
+  tempAlumnos.pop();
+}
+
 }
