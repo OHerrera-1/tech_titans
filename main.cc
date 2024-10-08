@@ -63,6 +63,8 @@ int main(int argc, char *argv[]) {
 }
 
 void CreateWebsite(std::queue<std::string> &Web_site) {
+  std::cout << "\n-----------------REGISTRO DE PAGINAS WEB--------------"<<std::endl;
+  
   std::string customer_name;
   std::cout << "\nIngrese el nombre del sitio web: ";
   std::cin >> customer_name;
@@ -74,6 +76,7 @@ void CreateWebsite(std::queue<std::string> &Web_site) {
 
 void registrarAlumnos(std::queue<Alumno> &alumnos) {
   Alumno alumno;
+  std::cout << "\n------------------REGISTRO DE USUARIOS----------------";
   std::cout << "\nIngrese el nombre del alumno: ";
   std::cin.ignore();
   std::getline(std::cin, alumno.nombre);
@@ -91,7 +94,7 @@ void registrarAlumnos(std::queue<Alumno> &alumnos) {
   std::getline(std::cin, alumno.carnet);
 
   alumnos.push(alumno);
-  std::cout << "\nRegistro completado\n";
+  std::cout << "\n-------------------REGISTRO EXITOSO-------------------"<<std::endl;
 }
 
 void AccessWebsite(std::queue<Alumno> &students,
@@ -121,6 +124,8 @@ void AccessWebsite(std::queue<Alumno> &students,
 }
 
 void AskUserAndPassword(std::string &id, std::string &userpassword) {
+  
+  std::cout << "\n-----------------REGISTRO A PAGINAS WEB---------------"<<std::endl;
   std::cout << "Ingrese su carnet: ";
   std::cin.ignore();
   std::getline(std::cin, id);
@@ -141,10 +146,12 @@ void ShowStudents(const std::queue<Alumno> &alumnos) {
   std::queue<Alumno> tempAlumnos = alumnos;
 
   if (tempAlumnos.empty()) {
-    std::cout << "No hay alumnos registrados. " << std::endl;
+   
+    std::cout << "-----------------Historial de alumnos-----------------" << std::endl;
+    std::cout << "\n              No hay alumnos registrados " << std::endl;
     return;
   }
-  std::cout << "/n Lista de alumnos registrados: " << std::endl;
+  std::cout << "-------------------Historial de alumnos-----------------" << std::endl;
   while (!tempAlumnos.empty()) {
     Alumno actualAlumno = tempAlumnos.front();
     tempAlumnos.pop();
