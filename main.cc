@@ -12,7 +12,7 @@ struct Alumno {
 };
 
 void CreateWebsite(std::queue<std::string> &WebSite);
-void registrarAlumnos(std::queue<Alumno> &);
+void RegisterStudents(std::queue<Alumno> &);
 void AccessWebsite(std::queue<Alumno> &students,
                    std::queue<std::string> websites, std::string user,
                    std::string password);
@@ -31,7 +31,7 @@ int main(int argc, char *argv[]) {
     std::cin >> opcion;
     switch (opcion) {
       case 1:
-        registrarAlumnos(Students);
+        RegisterStudents(Students);
         break;
 
       case 2:
@@ -74,7 +74,7 @@ void CreateWebsite(std::queue<std::string> &Web_site) {
   std::cout << std::endl;
 }
 
-void registrarAlumnos(std::queue<Alumno> &alumnos) {
+void RegisterStudents(std::queue<Alumno> &alumnos) {
   Alumno alumno;
   std::cout << "\n------------------REGISTRO DE USUARIOS----------------";
   std::cout << "\nIngrese el nombre del alumno: ";
