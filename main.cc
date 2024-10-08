@@ -156,7 +156,7 @@ void ShowStudents(const std::queue<Alumno> &alumnos) {
     Alumno actualAlumno = tempAlumnos.front();
     tempAlumnos.pop();
 
-    std::cout << "Nombre: " << actualAlumno.nombre
+    std::cout << "\nNombre: " << actualAlumno.nombre
               << ", Apellido: " << actualAlumno.apellido
               << ", Curso: " << actualAlumno.curso
               << ", Carnet: " << actualAlumno.carnet
